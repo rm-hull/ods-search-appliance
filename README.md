@@ -1,9 +1,18 @@
 # ODS Search Appliance [![Build Status](https://travis-ci.org/rm-hull/ods-search-appliance.svg?branch=master)](http://travis-ci.org/rm-hull/ods-search-appliance) [![Coverage Status](https://coveralls.io/repos/rm-hull/ods-search-appliance/badge.svg?branch=master)](https://coveralls.io/r/rm-hull/ods-search-appliance?branch=master) [![Dependencies Status](http://jarkeeper.com/rm-hull/ods-search-appliance/status.svg)](http://jarkeeper.com/rm-hull/ods-search-appliance)
 
-## Attribution
+TODO: Preamble goes here
 
-This appliance makes use of publicly available ODS data from [HSCIC](http://systems.hscic.gov.uk/data/ods/guidance/responsibility),
-licensed under the [Open Government License](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/).
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Setup / Install](#setup--install)
+- [References](#references)
+- [Licenses](#licenses)
+  - [OGL attribution](#ogl-attribution)
+  - [The MIT License (MIT)](#the-mit-license-mit)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Setup / Install
 
@@ -12,7 +21,14 @@ licensed under the [Open Government License](http://www.nationalarchives.gov.uk/
 * http://systems.hscic.gov.uk/data/ods/datadownloads
 * https://swtch.com/~rsc/regexp/regexp4.html
 
-## The MIT License (MIT)
+## Licenses
+
+### OGL attribution
+
+This appliance makes use of publicly available ODS data from [HSCIC](http://systems.hscic.gov.uk/data/ods/guidance/responsibility),
+licensed under the [Open Government License](http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/).
+
+### The MIT License (MIT)
 
 Copyright (c) 2016 Richard Hull
 
