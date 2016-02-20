@@ -11,7 +11,7 @@
     [clj-http "2.1.0"]
     [compojure "1.4.0"]
     [ring "1.4.0"]
-    [hiccup "1.4.0"]
+    [hiccup "1.0.5"]
     [table "0.5.0"]]
   :scm {:url "git@github.com:rm-hull/ods-search-appliance.git"}
   :plugins [
