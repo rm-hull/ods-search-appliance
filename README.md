@@ -1,4 +1,4 @@
-# ODS Search Appliance [![Build Status](https://travis-ci.org/rm-hull/ods-search-appliance.svg?branch=master)](http://travis-ci.org/rm-hull/ods-search-appliance) [![Coverage Status](https://coveralls.io/repos/rm-hull/ods-search-appliance/badge.svg?branch=master)](https://coveralls.io/r/rm-hull/ods-search-appliance?branch=master)
+# ODS Search Appliance [![Build Status](https://travis-ci.org/rm-hull/ods-search-appliance.svg?branch=master)](http://travis-ci.org/rm-hull/ods-search-appliance) [![Coverage Status](https://coveralls.io/repos/rm-hull/ods-search-appliance/badge.svg?branch=master)](https://coveralls.io/r/rm-hull/ods-search-appliance?branch=master) [![Dependencies Status](http://jarkeeper.com/rm-hull/ods-search-appliance/status.svg)](http://jarkeeper.com/rm-hull/ods-search-appliance)
 
 ## Attribution
 
@@ -8,6 +8,9 @@ licensed under the [Open Government License](http://www.nationalarchives.gov.uk/
 ## Setup / Install
 
 ## References
+
+* http://systems.hscic.gov.uk/data/ods/datadownloads
+* https://swtch.com/~rsc/regexp/regexp4.html
 
 ## The MIT License (MIT)
 
