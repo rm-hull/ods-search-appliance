@@ -3,6 +3,7 @@
     [clojure.java.io :as io]
     [clojure.data.csv :as csv]
     [clojure.string :as s]
+    [taoensso.timbre :as timbre]
     [odssa.zip :as zip]))
 
 (def field-names [
@@ -54,7 +55,7 @@
 (defn ^:private format-value [[k v]]
   [k ((get formatters k identity) v)])
 
-(defn to-json [^String csv-record]
+(defn to-map [^String csv-record]
   (->>
     (csv/read-csv csv-record)
     first
@@ -83,6 +84,12 @@
                      #(= (:filename %) csv))]
       (apply str (map char (:bytes entry))))))
 
+(defn wrap-logger [f]
+  (fn [source]
+    (do
+      (timbre/info "Fetching" source "using" f)
+      (f source))))
+
 (defn load-data [fetcher sources]
   (let [loader (fn [src] [src (-> src fetcher s/split-lines vec)])]
-    (into {} (pmap loader sources))))
+    (into {} (pmap (wrap-logger loader) sources))))

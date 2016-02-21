@@ -13,7 +13,7 @@
     (pmap (fn [[ k v]] (i/create-index l/extract-indexable-fields k v)) test-data)))
 
 (map
-  #(l/to-json (get-in test-data %))
+  #(l/to-map (get-in test-data %))
   (set/intersection
     (apply set/intersection (map index (i/trigrams "bannatyne")))
     (apply set/intersection (map index (i/trigrams "harrogate")))
