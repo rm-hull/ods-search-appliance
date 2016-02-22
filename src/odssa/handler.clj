@@ -76,8 +76,8 @@
           (get-in req [:params :q])
           (handle-search)
           (limit-result-set
-            (get-in req [:params :offset] 0)
-            (get-in req [:params :size] 20))
+            (Integer/parseInt (get-in req [:params :offset] "0"))
+            (Integer/parseInt (get-in req [:params :size] "20")))
           (add-license-attribution))))))
 
 (def app
