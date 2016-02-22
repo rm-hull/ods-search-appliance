@@ -1,4 +1,4 @@
-(defproject rm-hull/wam "0.0.1-SNAPSHOT"`
+(defproject rm-hull/ods-search-appliance "0.0.1-SNAPSHOT"`
   :description "ODs Search Appliance"
   :url "https://github.com/rm-hull/ods-search-appliance"
   :license {
