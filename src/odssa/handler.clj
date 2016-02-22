@@ -14,13 +14,21 @@
     [clojure.string :as s]))
 
 (def sources [
-  :etrust
-  :eccg
-  :ecsu
-  :etr
+  :eauth
   :ecare
+  :eccg
+  :eccgsite
+  :ecsu
+  :enonnhs
+  :eother
   :epraccur
-  :scotorg])
+  :etr
+  :etrust
+  ;:niorg
+  :scotorg
+  ;:wlhb
+
+  ])
 
 (def init
   (memoize
