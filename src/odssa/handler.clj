@@ -43,6 +43,10 @@
   (let [index (:index (init sources))]
     (apply set/intersection (map index (trigrams word)))))
 
+(defn fetch [data location]
+  (let [raw-record (get-in data location)]
+    (assoc (to-map raw-record) :source location)))
+
 (defn handle-search [query]
   (let [words (s/split query #"\W")
         data (:data (init sources))]
@@ -50,8 +54,7 @@
       words
       (map all)
       (reduce set/intersection)
-      (map #(get-in data %))
-      (map to-map))))
+      (map (partial fetch data)))))
 
 (defn limit-result-set [results start size]
   (let [end (min (count results) (+ start size))]
