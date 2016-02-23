@@ -1,8 +1,8 @@
-(ns odssa.data-source
+(ns odessa.data-source
   (:require
     [taoensso.timbre :as timbre]
-    [odssa.indexer :refer :all]
-    [odssa.loader :refer :all]))
+    [odessa.indexer :refer :all]
+    [odessa.loader :refer :all]))
 
 (timbre/refer-timbre)
 

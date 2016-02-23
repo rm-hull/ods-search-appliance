@@ -1,5 +1,5 @@
 (defproject rm-hull/ods-search-appliance "0.0.1-SNAPSHOT"`
-  :description "ODs Search Appliance"
+  :description "ODS Search Appliance ('Odessa')"
   :url "https://github.com/rm-hull/ods-search-appliance"
   :license {
     :name "The MIT License (MIT)"
@@ -16,7 +16,7 @@
     [metrics-clojure-ring "2.6.1"]]
   :scm {:url "git@github.com:rm-hull/ods-search-appliance.git"}
   :ring {
-    :handler odssa.handler/app }
+    :handler odessa.handler/app }
   :plugins [
     [lein-ring "0.9.7"]]
   :source-paths ["src"]

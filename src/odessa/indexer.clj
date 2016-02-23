@@ -1,8 +1,8 @@
-(ns odssa.indexer
+(ns odessa.indexer
   (:require
     [clojure.set :as set]
     [clojure.string :as s]
-    [odssa.loader :as l]))
+    [odessa.loader :as l]))
 
 (defn ^:private partitions [text]
   (let [n (count text)]

@@ -1,4 +1,4 @@
-(ns odssa.json
+(ns odessa.json
   (:require
     [ring.util.response :refer [response status content-type charset]]
     [clojure.data.json :as json]

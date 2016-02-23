@@ -1,11 +1,11 @@
-(ns odssa.handler
+(ns odessa.handler
   (:require
     [compojure.handler :as handler]
     [ring.logger.timbre :as logger.timbre]
     [metrics.ring.expose :refer [expose-metrics-as-json]]
     [metrics.ring.instrument :refer [instrument]]
-    [odssa.data-source :as ds]
-    [odssa.search :as search]))
+    [odessa.data-source :as ds]
+    [odessa.search :as search]))
 
 (ds/get-index)
 

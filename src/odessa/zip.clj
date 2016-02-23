@@ -1,4 +1,4 @@
-(ns odssa.zip
+(ns odessa.zip
   (:import
     [java.util.zip ZipInputStream ZipEntry])
   (:require
@@ -32,5 +32,3 @@
       (map (partial read-entry zip-stream))
       (filter pred)
       first)))
-
-

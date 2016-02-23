@@ -1,10 +1,10 @@
-(ns odssa.loader
+(ns odessa.loader
   (:require
     [clojure.java.io :as io]
     [clojure.data.csv :as csv]
     [clojure.string :as s]
     [taoensso.timbre :as timbre]
-    [odssa.zip :as zip]))
+    [odessa.zip :as zip]))
 
 (def field-names [
   :organisation-code

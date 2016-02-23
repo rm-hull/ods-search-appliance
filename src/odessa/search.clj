@@ -1,14 +1,14 @@
-(ns odssa.search
+(ns odessa.search
   (:require
+    [clojure.set :as set]
+    [clojure.string :as s]
     [clojure.data.json :as json]
     [compojure.route :as route]
     [compojure.core :refer [defroutes GET POST]]
-    [odssa.json :refer :all]
-    [odssa.data-source :as ds]
-    [odssa.indexer :as i]
-    [odssa.loader :as l]
-    [clojure.set :as set]
-    [clojure.string :as s]))
+    [odessa.json :refer :all]
+    [odessa.data-source :as ds]
+    [odessa.indexer :as i]
+    [odessa.loader :as l]))
 
 (defn all [word]
   (let [index (ds/get-index)]
