@@ -1,9 +1,9 @@
-(ns odssa.indexer-test
+(ns odessa.indexer-test
   (:require
     [clojure.set :as set]
     [clojure.string :as s]
-    [odssa.loader :as l]
-    [odssa.indexer :as i]))
+    [odessa.loader :as l]
+    [odessa.indexer :as i]))
 
 ;(def test-data (l/load-data l/http-fetcher [:etrust :eccg :ecsu :etr :ecare :epraccur :scotorg]))
 (def test-data (l/load-data l/http-fetcher [:etr]))

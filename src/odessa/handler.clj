@@ -7,8 +7,6 @@
     [odessa.data-source :as ds]
     [odessa.search :as search]))
 
-(ds/get-index)
-
 (def app
     (->
       search/routes
