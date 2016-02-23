@@ -84,12 +84,6 @@
                      #(= (:filename %) csv))]
       (apply str (map char (:bytes entry))))))
 
-(defn wrap-logger [f]
-  (fn [source]
-    (do
-      (timbre/info "Fetching" source "using" f)
-      (f source))))
-
 (defn load-data [fetcher sources]
   (let [loader (fn [src] [src (-> src fetcher s/split-lines vec)])]
-    (into {} (pmap (wrap-logger loader) sources))))
+    (into {} (pmap loader sources))))
