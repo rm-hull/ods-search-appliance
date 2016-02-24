@@ -41,4 +41,4 @@
   (:data (init sources)))
 
 (defn get-index []
-  (:data (init sources)))
+  (:index (init sources)))
