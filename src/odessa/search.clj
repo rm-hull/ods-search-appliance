@@ -7,29 +7,27 @@
     [compojure.core :refer [defroutes GET POST]]
     [odessa.json :refer :all]
     [odessa.data-source :as ds]
-    [odessa.indexer :as i]
-    [odessa.loader :as l]))
+    [odessa.parser :refer [parse-all]]
+    [odessa.grammar :refer [search-expr]]
+    [odessa.loader :refer [to-map]]))
 
-(defn all [word]
-  (let [index (ds/get-index)]
-    (apply set/intersection (map index (i/trigrams word)))))
-
-(defn fetch [data location]
-  (let [raw-record (get-in data location)]
-    (assoc (l/to-map raw-record) :source location)))
+(defn fetch [data]
+  (fn [location]
+    (let [raw-record (get-in data location)]
+      (assoc (to-map raw-record) :source location))))
 
 (defn handle-search [query]
-  (let [words (s/split query #"\W")
-        data (ds/get-data)]
-    (->>
-      words
-      (map all)
-      (reduce set/intersection)
-      (map (partial fetch data)))))
+  (let [data (ds/get-data)
+        index (ds/get-index)
+        search (parse-all search-expr query)]
+    (if (nil? search)
+      (throw (IllegalArgumentException. "Unable to parse query"))
+      (map (fetch data) (search index)))))
 
-(defn limit-result-set [results start size]
+(defn limit-result-set [results start size query]
   (let [end (min (count results) (+ start size))]
-    {:results {
+    {:query query
+     :results {
       :total-count (count results)
       :showing {
         :from start
@@ -59,5 +57,6 @@
           (handle-search)
           (limit-result-set
             (Integer/parseInt (get-in req [:params :offset] "0"))
-            (Integer/parseInt (get-in req [:params :size] "20")))
+            (Integer/parseInt (get-in req [:params :size] "20"))
+            (get-in req [:params :q]))
           (add-license-attribution))))))

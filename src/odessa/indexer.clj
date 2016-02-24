@@ -40,3 +40,26 @@
     (map-indexed list)
     (reduce f {}))))
 
+(defn build-functor [term]
+  (if (fn? term)
+    term
+    (fn [index]
+      (apply set/intersection (map index (trigrams term))))))
+
+(def all-terms
+  (memoize
+    (fn [index]
+      (apply set/union (vals index)))))
+
+(defn negate [functor]
+  (fn [index]
+    (set/difference
+      (all-terms index)
+      (functor index))))
+
+(defn build-composite-functor [combiner functors]
+  (fn [index]
+    (apply combiner (map #(% index) functors))))
+
+(def build-and-functor (partial build-composite-functor set/intersection))
+(def build-or-functor (partial build-composite-functor set/union))
