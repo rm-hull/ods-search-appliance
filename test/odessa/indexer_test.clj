@@ -1,7 +1,6 @@
 (ns odessa.indexer-test
   (:require
     [clojure.set :as set]
-    [clojure.string :as s]
     [odessa.loader :as l]
     [odessa.indexer :as i]))
 
@@ -15,6 +14,7 @@
 (map
   #(l/to-map (get-in test-data %))
   (set/intersection
-    (apply set/intersection (map index (i/trigrams "bannatyne")))
     (apply set/intersection (map index (i/trigrams "harrogate")))
     (apply set/intersection (map index (i/trigrams "york")))))
+
+
