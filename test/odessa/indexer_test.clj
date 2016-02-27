@@ -18,3 +18,5 @@
     (apply set/intersection (map index (i/trigrams "york")))))
 
 
+(zipmap [1 2 3] [:a :b :c])
+
