@@ -26,9 +26,16 @@
              (remove nil?))]
   (zipmap
     (into [] xf index-terms)
-    (repeat #{ key }))))
+    (repeat [ key ]))))
 
-(def merge-indexes (partial merge-with set/union))
+(defn cheap-concat [a b]
+  (if (empty? b)
+    a
+    (recur
+      (cons (first b) a)
+      (next b))))
+
+(def merge-indexes (partial merge-with cheap-concat))
 
 (defn create-index [extractor prefix data]
   (let [f (fn [index [n record]]
@@ -44,12 +51,19 @@
   (if (fn? term)
     term
     (fn [index]
-      (apply set/intersection (map index (trigrams term))))))
+      (->>
+        (trigrams term)
+        (map index)
+        (map set)
+        (apply set/intersection)))))
 
 (def all-terms
   (memoize
     (fn [index]
-      (apply set/union (vals index)))))
+      (->>
+        (vals index)
+        (map set)
+        (reduce set/union)))))
 
 (defn negate [functor]
   (fn [index]
