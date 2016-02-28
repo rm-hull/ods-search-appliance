@@ -8,7 +8,7 @@
     [org.clojure/clojure "1.8.0"]
     [org.clojure/data.json "0.2.6"]
     [org.clojure/data.csv "0.1.3"]
-    [com.taoensso/timbre "4.2.1"]
+    [com.taoensso/timbre "4.3.1"]
     [compojure "1.4.0"]
     [ring "1.4.0"]
     [hiccup "1.0.5"]
