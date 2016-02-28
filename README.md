@@ -83,222 +83,222 @@ The HTTP response type is `application/json`.
 
 Running:
 
-    curl http://localhost:3000/search?q=rotherham%20AND%20NOT%20doncaster\&size=10 | json_pp
+    $ curl -s http://localhost:3000/search?q=rotherham%20AND%20NOT%20doncaster\&size=10 | jq '.'
 
 gives
 
 ```json
 {
-   "query" : "rotherham AND NOT doncaster",
-   "attribution" : [
+  "query": "rotherham AND NOT doncaster",
+  "results": {
+    "total-count": 217,
+    "showing": {
+      "from": 0,
+      "to": 9
+    },
+    "data": [
       {
-         "url" : "https://github.com/rm-hull/ods-search-application",
-         "title" : "ODS Search Appliance (c) Richard Hull 2016",
-         "description" : "In-memory trigram inverted-indexes on HSCIC ODS data.",
-         "license" : "MIT"
+        "address-line-1": "POPLAR GLADE",
+        "address-line-2": "WICKERSLEY",
+        "address-line-4": "ROTHERHAM",
+        "address-line-5": "SOUTH YORKSHIRE",
+        "amended-record-indicator": true,
+        "gor-code": "D",
+        "high-level-health-geography": "Q72",
+        "name": "WICKERSLEY HEALTH CENTRE",
+        "national-grouping": "Y54",
+        "open-date": "2011-04-01",
+        "organisation-code": "RFRPW",
+        "postcode": "S66 2JQ",
+        "source": [
+          "etrust",
+          5120
+        ]
       },
       {
-         "description" : "ODS data is published under the Open Government Licence (OGL) and is openly available to everyone to use.",
-         "license" : "Open Government License",
-         "url" : "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/",
-         "title" : "Organisation Data Service, Health and Social Care Information Centre, licenced under the Open Government Licence v2.0"
+        "address-line-1": "THE VILLAGE SURGERY",
+        "address-line-2": "24-28 LAUGHTON ROAD",
+        "address-line-3": "THURCROFT",
+        "address-line-4": "ROTHERHAM",
+        "address-line-5": "SOUTH YORKSHIRE",
+        "amended-record-indicator": true,
+        "gor-code": "D",
+        "high-level-health-geography": "Q72",
+        "name": "THURCROFT CLINIC",
+        "national-grouping": "Y54",
+        "open-date": "2011-04-01",
+        "organisation-code": "RFRTC",
+        "postcode": "S66 9LP",
+        "source": [
+          "etrust",
+          5140
+        ]
+      },
+      {
+        "address-line-1": "ROTHERHAM GENERAL HOSPITAL",
+        "address-line-2": "MOORGATE ROAD",
+        "address-line-3": "OAKWOOD",
+        "address-line-4": "ROTHERHAM",
+        "address-line-5": "SOUTH YORKSHIRE",
+        "amended-record-indicator": true,
+        "gor-code": "D",
+        "high-level-health-geography": "Q72",
+        "name": "ORAL/MAXILLO-FACIAL",
+        "national-grouping": "Y54",
+        "open-date": "2010-10-01",
+        "organisation-code": "RFR21",
+        "postcode": "S60 2UD",
+        "source": [
+          "etrust",
+          5069
+        ]
+      },
+      {
+        "address-line-1": "1-6 CRANWORTH CLOSE",
+        "address-line-4": "ROTHERHAM",
+        "address-line-5": "SOUTH YORKSHIRE",
+        "amended-record-indicator": true,
+        "high-level-health-geography": "Q72",
+        "name": "CRANWORTH CLOSE",
+        "national-grouping": "Y54",
+        "open-date": "1998-04-01",
+        "organisation-code": "8FV07",
+        "organisation-sub-type-code": "R",
+        "postcode": "S65 1LB",
+        "source": [
+          "enonnhs",
+          7895
+        ]
+      },
+      {
+        "address-line-1": "THOROGATE",
+        "address-line-2": "RAWMARSH",
+        "address-line-4": "ROTHERHAM",
+        "address-line-5": "SOUTH YORKSHIRE",
+        "amended-record-indicator": true,
+        "gor-code": "D",
+        "high-level-health-geography": "Q72",
+        "name": "MONKWOOD CLINIC",
+        "national-grouping": "Y54",
+        "open-date": "2011-04-01",
+        "organisation-code": "RFRRL",
+        "postcode": "S62 7HU",
+        "source": [
+          "etrust",
+          5131
+        ]
+      },
+      {
+        "address-line-1": "ROTHERHAM GENERAL HOSPITAL",
+        "address-line-2": "MOORGATE ROAD",
+        "address-line-3": "OAKWOOD",
+        "address-line-4": "ROTHERHAM",
+        "address-line-5": "SOUTH YORKSHIRE",
+        "amended-record-indicator": true,
+        "gor-code": "D",
+        "high-level-health-geography": "Q72",
+        "name": "MUSCULAR SKELETAL INTERFACE",
+        "national-grouping": "Y54",
+        "open-date": "2010-10-01",
+        "organisation-code": "RFR27",
+        "postcode": "S60 2UD",
+        "source": [
+          "etrust",
+          5075
+        ]
+      },
+      {
+        "address-line-1": "THURNSCOE BRIDGE LANE",
+        "address-line-2": "THURNSCOE",
+        "address-line-4": "ROTHERHAM",
+        "address-line-5": "SOUTH YORKSHIRE",
+        "amended-record-indicator": true,
+        "high-level-health-geography": "Q72",
+        "name": "THE GROVE NH",
+        "national-grouping": "Y54",
+        "open-date": "1996-04-01",
+        "organisation-code": "8A003",
+        "organisation-sub-type-code": "R",
+        "postcode": "S63 0SN",
+        "source": [
+          "enonnhs",
+          1
+        ]
+      },
+      {
+        "address-line-1": "BRINSWORTH LANE",
+        "address-line-2": "BRINSWORTH",
+        "address-line-4": "ROTHERHAM",
+        "address-line-5": "SOUTH YORKSHIRE",
+        "amended-record-indicator": true,
+        "gor-code": "D",
+        "high-level-health-geography": "Q72",
+        "name": "BRINSWORTH CLINIC",
+        "national-grouping": "Y54",
+        "open-date": "2011-04-01",
+        "organisation-code": "RFRRE",
+        "postcode": "S60 5BX",
+        "source": [
+          "etrust",
+          5125
+        ]
+      },
+      {
+        "address-line-1": "PO BOX 741",
+        "address-line-3": "ROTHERHAM",
+        "amended-record-indicator": true,
+        "contact-telephone-number": "0333 2001726",
+        "gor-code": "03N",
+        "high-level-health-geography": "Q72",
+        "join-provider-date": "2013-04-01",
+        "name": "SHEFFIELD VP SCHEME (3)",
+        "national-grouping": "Y54",
+        "open-date": "2009-09-22",
+        "organisation-code": "Y02876",
+        "organisation-sub-type-code": "B",
+        "postcode": "S60 9HE",
+        "prescribing-setting": "0",
+        "source": [
+          "epraccur",
+          10676
+        ],
+        "status-code": "A"
+      },
+      {
+        "address-line-1": "NINE TREES",
+        "address-line-2": "NINE TREES TRADING ESTATE",
+        "address-line-3": "MORTHEN ROAD",
+        "address-line-4": "ROTHERHAM",
+        "address-line-5": "SOUTH YORKSHIRE",
+        "amended-record-indicator": true,
+        "gor-code": "D",
+        "high-level-health-geography": "Q72",
+        "name": "ROTHERHAM IAPT",
+        "national-grouping": "Y54",
+        "open-date": "2014-10-01",
+        "organisation-code": "RXEDN",
+        "postcode": "S66 9JG",
+        "source": [
+          "etrust",
+          22206
+        ]
       }
-   ],
-   "results" : {
-      "showing" : {
-         "to" : 9,
-         "from" : 0
-      },
-      "total-count" : 217,
-      "data" : [
-         {
-            "source" : [
-               "enonnhs",
-               7895
-            ],
-            "address-line-5" : "SOUTH YORKSHIRE",
-            "high-level-health-geography" : "Q72",
-            "address-line-1" : "1-6 CRANWORTH CLOSE",
-            "amended-record-indicator" : true,
-            "organisation-sub-type-code" : "R",
-            "national-grouping" : "Y54",
-            "name" : "CRANWORTH CLOSE",
-            "postcode" : "S65 1LB",
-            "address-line-4" : "ROTHERHAM",
-            "organisation-code" : "8FV07",
-            "open-date" : "1998-04-01"
-         },
-         {
-            "source" : [
-               "etrust",
-               21852
-            ],
-            "address-line-5" : "SOUTH YORKSHIRE",
-            "high-level-health-geography" : "Q72",
-            "amended-record-indicator" : true,
-            "address-line-1" : "1-6 CRANWORTH CLOSE",
-            "national-grouping" : "Y54",
-            "name" : "ROTHERHAM LEARNING DISABILITIES HOME 1",
-            "gor-code" : "D",
-            "organisation-code" : "RXEC1",
-            "postcode" : "S65 1LB",
-            "open-date" : "2010-10-01",
-            "address-line-4" : "ROTHERHAM"
-         },
-         {
-            "organisation-code" : "8A003",
-            "postcode" : "S63 0SN",
-            "address-line-4" : "ROTHERHAM",
-            "open-date" : "1996-04-01",
-            "national-grouping" : "Y54",
-            "name" : "THE GROVE NH",
-            "high-level-health-geography" : "Q72",
-            "amended-record-indicator" : true,
-            "organisation-sub-type-code" : "R",
-            "address-line-1" : "THURNSCOE BRIDGE LANE",
-            "source" : [
-               "enonnhs",
-               1
-            ],
-            "address-line-5" : "SOUTH YORKSHIRE",
-            "address-line-2" : "THURNSCOE"
-         },
-         {
-            "postcode" : "S63 0LT",
-            "organisation-code" : "02PCC",
-            "open-date" : "2013-10-01",
-            "address-line-4" : "ROTHERHAM",
-            "name" : "THURNSCOE LIFT PREMISES",
-            "national-grouping" : "Y54",
-            "amended-record-indicator" : true,
-            "address-line-1" : "JOHN STREET",
-            "high-level-health-geography" : "Q72",
-            "address-line-5" : "SOUTH YORKSHIRE",
-            "address-line-2" : "THURNSCOE",
-            "join-provider-date" : "2013-10-01",
-            "source" : [
-               "eccgsite",
-               623
-            ]
-         },
-         {
-            "address-line-5" : "SOUTH YORKSHIRE",
-            "source" : [
-               "etrust",
-               4962
-            ],
-            "amended-record-indicator" : true,
-            "address-line-1" : "16 BRIDGEGATE",
-            "high-level-health-geography" : "Q72",
-            "name" : "ROTHERHAM STOP SMOKING SERVICE",
-            "national-grouping" : "Y54",
-            "gor-code" : "D",
-            "organisation-code" : "RFRRG",
-            "postcode" : "S60 1PQ",
-            "address-line-4" : "ROTHERHAM",
-            "open-date" : "2011-04-01"
-         },
-         {
-            "gor-code" : "D",
-            "postcode" : "S61 1EA",
-            "organisation-code" : "RFRFC",
-            "open-date" : "2005-04-01",
-            "address-line-4" : "ROTHERHAM",
-            "national-grouping" : "Y54",
-            "name" : "FERHAM CLINIC",
-            "amended-record-indicator" : true,
-            "address-line-1" : "FERHAM ROAD",
-            "high-level-health-geography" : "Q72",
-            "address-line-5" : "SOUTH YORKSHIRE",
-            "source" : [
-               "etrust",
-               4946
-            ]
-         },
-         {
-            "gor-code" : "D",
-            "postcode" : "S60 2UD",
-            "open-date" : "2010-10-01",
-            "organisation-code" : "RFR21",
-            "address-line-4" : "ROTHERHAM",
-            "national-grouping" : "Y54",
-            "name" : "ORAL/MAXILLO-FACIAL",
-            "address-line-3" : "OAKWOOD",
-            "high-level-health-geography" : "Q72",
-            "amended-record-indicator" : true,
-            "address-line-1" : "ROTHERHAM GENERAL HOSPITAL",
-            "source" : [
-               "etrust",
-               4904
-            ],
-            "address-line-2" : "MOORGATE ROAD",
-            "address-line-5" : "SOUTH YORKSHIRE"
-         },
-         {
-            "address-line-4" : "ROTHERHAM",
-            "postcode" : "S63 7RF",
-            "name" : "WATH HEALTH CENTRE",
-            "national-grouping" : "Y54",
-            "address-line-3" : "WATH-UPON-DEARNE",
-            "high-level-health-geography" : "Q51",
-            "amended-record-indicator" : true,
-            "left-provider-date" : "2014-06-30",
-            "source" : [
-               "epraccur",
-               1883
-            ],
-            "contact-telephone-number" : "01709 873233",
-            "organisation-code" : "C87019",
-            "open-date" : "1974-04-01",
-            "gor-code" : "03L",
-            "address-line-1" : "WATH HEALTH CENTRE",
-            "prescribing-setting" : "0",
-            "organisation-sub-type-code" : "B",
-            "status-code" : "C",
-            "close-date" : "2014-06-30",
-            "join-provider-date" : "2013-04-01",
-            "address-line-2" : "35 CHURCH STREET"
-         },
-         {
-            "postcode" : "S60 2UD",
-            "organisation-code" : "RFR35",
-            "address-line-4" : "ROTHERHAM",
-            "open-date" : "2015-04-01",
-            "gor-code" : "D",
-            "address-line-3" : "MOORGATE ROAD",
-            "name" : "OSTEOPOROSIS SERVICE",
-            "national-grouping" : "Y54",
-            "address-line-1" : "INTEGRATED MEDICINE",
-            "amended-record-indicator" : true,
-            "high-level-health-geography" : "Q72",
-            "address-line-5" : "SOUTH YORKSHIRE",
-            "address-line-2" : "THE ROTHERHAM NHS FOUNDATION TRUST",
-            "source" : [
-               "etrust",
-               4918
-            ]
-         },
-         {
-            "address-line-5" : "SOUTH YORKSHIRE",
-            "address-line-2" : "MOORHEAD WAY",
-            "source" : [
-               "eccg",
-               60
-            ],
-            "address-line-1" : "OAK HOUSE",
-            "amended-record-indicator" : true,
-            "organisation-sub-type-code" : "C",
-            "high-level-health-geography" : "Q72",
-            "address-line-3" : "BRAMLEY",
-            "name" : "NHS ROTHERHAM CCG",
-            "national-grouping" : "Y54",
-            "postcode" : "S66 1YY",
-            "open-date" : "2013-04-01",
-            "organisation-code" : "03L",
-            "address-line-4" : "ROTHERHAM"
-         }
-      ]
-   }
+    ]
+  },
+  "attribution": [
+    {
+      "license": "MIT",
+      "title": "ODS Search Appliance (c) Richard Hull 2016",
+      "description": "In-memory trigram inverted-indexes on HSCIC ODS data.",
+      "url": "https://github.com/rm-hull/ods-search-application"
+    },
+    {
+      "license": "Open Government License",
+      "title": "Organisation Data Service, Health and Social Care Information Centre, licenced under the Open Government Licence v2.0",
+      "description": "ODS data is published under the Open Government Licence (OGL) and is openly available to everyone to use.",
+      "url": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/"
+    }
+  ]
 }
 ```
 
