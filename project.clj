@@ -9,7 +9,7 @@
     [org.clojure/data.json "0.2.6"]
     [org.clojure/data.csv "0.1.3"]
     [com.taoensso/timbre "4.3.1"]
-    [compojure "1.4.0"]
+    [compojure "1.5.0"]
     [ring "1.4.0"]
     [hiccup "1.0.5"]
     [ring-logger-timbre "0.7.5"]
@@ -34,4 +34,4 @@
       :global-vars {*warn-on-reflection* true}
       :plugins [
         [lein-cloverage "1.0.6"]
-        [codox "0.9.4"]]}})
+        [codox "0.9.5"]]}})
