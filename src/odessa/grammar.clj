@@ -1,6 +1,8 @@
 (ns odessa.grammar
   (:require
-    [odessa.parser :refer :all]
+    [jasentaa.monad :as m]
+    [jasentaa.parser.basic :refer :all]
+    [jasentaa.parser.combinators :refer :all]
     [odessa.indexer :refer :all]))
 
 ; searchTerm ::= [NOT] ( singleWord | quotedString | '(' searchExpr ')' )
@@ -16,46 +18,46 @@
 (declare search-expr)
 
 (def single-word
-  (do*
+  (m/do*
     spaces
     (word <- (plus alpha-num))
     spaces
-    (return (apply str word))))
+    (m/return (apply str word))))
 
 (def quoted-string
-  (do*
+  (m/do*
     spaces
     (match "\"")
     (text <- (plus (any-of digit letter (match " "))))
     (match "\"")
     spaces
-    (return (apply str text))))
+    (m/return (apply str text))))
 
 (def bracketed-expr
-  (do*
+  (m/do*
     (match "(")
     spaces
     (expr <- search-expr)
     spaces
     (match ")")
-    (return expr)))
+    (m/return expr)))
 
 (def search-term
-  (do*
-    (neg <- (optional (do* (string "NOT") (plus space))))
+  (m/do*
+    (neg <- (optional (m/do* (string "NOT") (plus space))))
     (term <- (any-of single-word quoted-string bracketed-expr))
-    (return (if (empty? neg)
+    (m/return (if (empty? neg)
               (build-functor term)
               (negate (build-functor term))))))
 
 (def search-and
-  (do*
+  (m/do*
     (fst <- search-term)
-    (rst <- (many (do* (optional (and-then (plus space) (string "AND"))) (plus space) search-term)))
-    (return (if (empty? rst) fst (build-and-functor (cons fst rst))))))
+    (rst <- (many (m/do* (optional (and-then (plus space) (string "AND"))) (plus space) search-term)))
+    (m/return (if (empty? rst) fst (build-and-functor (cons fst rst))))))
 
 (def search-expr
-  (do*
+  (m/do*
     (fst <- search-and)
-    (rst <- (many (do* (plus space) (string "OR") (plus space) search-and)))
-    (return (if (empty? rst) fst (build-or-functor (cons fst rst))))))
+    (rst <- (many (m/do* (plus space) (string "OR") (plus space) search-and)))
+    (m/return (if (empty? rst) fst (build-or-functor (cons fst rst))))))

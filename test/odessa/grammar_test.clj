@@ -1,7 +1,7 @@
 (ns odessa.grammar-test
   (:require
+    [jasentaa.parser :refer [parse-all]]
     [odessa.grammar :refer :all]
-    [odessa.parser :refer :all]
     [odessa.indexer :refer :all]
     [odessa.loader :refer :all]))
 

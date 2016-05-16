@@ -5,9 +5,9 @@
     [clojure.data.json :as json]
     [compojure.route :as route]
     [compojure.core :refer [defroutes GET POST]]
+    [jasentaa.parser :refer [parse-all]]
     [odessa.json :refer :all]
     [odessa.data-source :as ds]
-    [odessa.parser :refer [parse-all]]
     [odessa.grammar :refer [search-expr]]
     [odessa.loader :refer [to-map]]))
 
