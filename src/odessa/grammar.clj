@@ -47,8 +47,8 @@
     (neg <- (optional (m/do* (string "NOT") (plus space))))
     (term <- (any-of single-word quoted-string bracketed-expr))
     (m/return (if (empty? neg)
-              (build-functor term)
-              (negate (build-functor term))))))
+                (build-functor term)
+                (negate (build-functor term))))))
 
 (def search-and
   (m/do*
