@@ -5,7 +5,7 @@
     [odessa.indexer :refer :all]
     [odessa.loader :refer :all]))
 
-(parse-all search-expr "")
+;(parse-all search-expr "")
 (parse-all search-expr "NOT hello ")
 (parse-all search-expr "hello")
 (parse-all search-expr " \"hello world\"")
