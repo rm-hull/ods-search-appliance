@@ -16,6 +16,7 @@
 (parse-all search-expr "hello AND goodbye OR world")
 (parse-all search-expr "( hello OR goodbye ) AND NOT ( world OR planet)")
 (parse-all search-expr "hello you ")
+(parse-all search-expr "\"hello you\"")
 
 (def test-data (load-data http-fetcher [:etr]))
 

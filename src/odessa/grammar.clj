@@ -1,6 +1,7 @@
 (ns odessa.grammar
   (:require
     [jasentaa.monad :as m]
+    [jasentaa.position :refer [strip-location]]
     [jasentaa.parser.basic :refer :all]
     [jasentaa.parser.combinators :refer :all]
     [odessa.indexer :refer :all]))
@@ -19,32 +20,26 @@
 
 (def single-word
   (m/do*
-    spaces
-    (word <- (plus alpha-num))
-    spaces
-    (m/return (apply str word))))
+    (x <- (token (plus alpha-num)))
+    (m/return (strip-location x))))
 
 (def quoted-string
   (m/do*
-    spaces
-    (match "\"")
-    (text <- (plus (any-of digit letter (match " "))))
-    (match "\"")
-    spaces
-    (m/return (apply str text))))
+    (symb "\"")
+    (x <- (plus (any-of digit letter (match " "))))
+    (symb "\"")
+    (m/return (strip-location x))))
 
 (def bracketed-expr
   (m/do*
-    (match "(")
-    spaces
+    (symb "(")
     (expr <- search-expr)
-    spaces
-    (match ")")
+    (symb ")")
     (m/return expr)))
 
 (def search-term
   (m/do*
-    (neg <- (optional (m/do* (string "NOT") (plus space))))
+    (neg <- (optional (m/do* (symb "NOT") space)))
     (term <- (any-of single-word quoted-string bracketed-expr))
     (m/return (if (empty? neg)
                 (build-functor term)
@@ -53,11 +48,11 @@
 (def search-and
   (m/do*
     (fst <- search-term)
-    (rst <- (many (m/do* (optional (and-then (plus space) (string "AND"))) (plus space) search-term)))
+    (rst <- (many (m/do* (optional (symb "AND")) (plus space) search-term)))
     (m/return (if (empty? rst) fst (build-and-functor (cons fst rst))))))
 
 (def search-expr
   (m/do*
     (fst <- search-and)
-    (rst <- (many (m/do* (plus space) (string "OR") (plus space) search-and)))
+    (rst <- (many (m/do* (symb "OR") space search-and)))
     (m/return (if (empty? rst) fst (build-or-functor (cons fst rst))))))

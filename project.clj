@@ -9,12 +9,12 @@
     [org.clojure/data.json "0.2.6"]
     [org.clojure/data.csv "0.1.3"]
     [com.taoensso/timbre "4.3.1"]
-    [rm-hull/jasentaa "0.1.0"]
+    [rm-hull/jasentaa "0.2.0"]
     [compojure "1.5.0"]
     [ring "1.4.0"]
     [hiccup "1.0.5"]
     [ring-logger-timbre "0.7.5"]
-    [metrics-clojure-ring "2.6.1"]]
+    [metrics-clojure-ring "2.7.0"]]
   :scm {:url "git@github.com:rm-hull/ods-search-appliance.git"}
   :ring {
     :handler odessa.handler/app }
