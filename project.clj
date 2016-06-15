@@ -8,10 +8,10 @@
     [org.clojure/clojure "1.8.0"]
     [org.clojure/data.json "0.2.6"]
     [org.clojure/data.csv "0.1.3"]
-    [com.taoensso/timbre "4.3.1"]
-    [rm-hull/jasentaa "0.2.2"]
+    [com.taoensso/timbre "4.4.0"]
+    [rm-hull/jasentaa "0.2.3"]
     [compojure "1.5.0"]
-    [ring "1.4.0"]
+    [ring "1.5.0"]
     [hiccup "1.0.5"]
     [ring-logger-timbre "0.7.5"]
     [metrics-clojure-ring "2.7.0"]]
@@ -24,15 +24,14 @@
   :jar-exclusions [#"(?:^|/).git"]
   :uberjar-exclusions [#"\.SF" #"\.RSA" #"\.DSA"]
   :codox {
-    :sources ["src"]
-    :output-dir "doc/api"
-    :src-dir-uri "http://github.com/rm-hull/ods-search-appliance/blob/master/"
-    :src-linenum-anchor-prefix "L" }
-  :min-lein-version "2.5.3"
+    :source-paths ["src"]
+    :output-path "doc/api"
+    :source-uri "http://github.com/rm-hull/ods-search-appliance/blob/master/{filepath}#L{line}" }
+  :min-lein-version "2.6.1"
   :profiles {
     :uberjar {:aot :all}
     :dev {
       :global-vars {*warn-on-reflection* true}
       :plugins [
         [lein-cloverage "1.0.6"]
-        [codox "0.9.5"]]}})
+        [lein-codox "0.9.5"]]}})
