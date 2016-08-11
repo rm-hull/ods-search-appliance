@@ -6,6 +6,8 @@
     [taoensso.timbre :as timbre]
     [odessa.zip :as zip]))
 
+(def base-url "http://systems.digital.nhs.uk/data/ods/datadownloads/data-files/")
+
 (def field-names [
   :organisation-code
   :name
@@ -79,9 +81,7 @@
   (let [basename (name source)
         zip (str basename ".zip")
         csv (str basename ".csv")]
-    (if-let [entry (zip/extract
-                     (str "http://systems.hscic.gov.uk/data/ods/datadownloads/data-files/" zip)
-                     #(= (:filename %) csv))]
+    (if-let [entry (zip/extract (str base-url zip) #(= (:filename %) csv))]
       (apply str (map char (:bytes entry))))))
 
 (defn load-data [fetcher sources]
