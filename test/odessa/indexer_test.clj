@@ -16,3 +16,5 @@
   (set/intersection
     (apply set/intersection (map set (map index (i/trigrams "harrogate"))))
     (apply set/intersection (map set (map index (i/trigrams "york"))))))
+
+(apply i/create-primary-key l/extract-primary-key (first test-data))

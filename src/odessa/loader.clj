@@ -72,6 +72,9 @@
     (map (first (csv/read-csv csv-record)))
     (remove empty?)))
 
+(defn extract-primary-key [csv-record]
+  (ffirst (csv/read-csv csv-record)))
+
 (defn file-fetcher [source]
   (let [basename (name source)
         csv (str basename ".csv")]

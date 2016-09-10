@@ -13,8 +13,9 @@
 
 (defn fetch [data]
   (fn [location]
-    (let [raw-record (get-in data location)]
-      (assoc (to-map raw-record) :source location))))
+    (if-let [raw-record (and location (get-in data location))]
+      (assoc (to-map raw-record) :source location)
+      (throw (IllegalArgumentException. "No record found")))))
 
 (defn handle-search [query]
   (let [data (ds/get-data)
@@ -34,6 +35,15 @@
         :to (max 0 (dec end)) }
       :data (->> results (drop start) (take size))}}))
 
+(defn lookup-by-location [location]
+  (let [data (ds/get-data)]
+    {:query location
+     :data ((fetch data) location)}))
+
+(defn lookup-by-org-code [id]
+  (let [locn (get (ds/get-primary-keys) id)]
+    (assoc (lookup-by-location locn) :query id)))
+
 (defn add-license-attribution [results]
   (assoc results
     :attribution [
@@ -49,6 +59,20 @@
       :url "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/"}]))
 
 (defroutes routes
+  (GET "/organisation-code/:id" [id]
+    (json-exception-handler
+      (to-json identity
+        (->>
+          (lookup-by-org-code id)
+          (add-license-attribution)))))
+
+  (GET "/source/:prefix/:index" [prefix index]
+    (json-exception-handler
+      (to-json identity
+        (->>
+          (lookup-by-location [(keyword prefix) (Integer/parseInt index)])
+          (add-license-attribution)))))
+
   (GET "/search" [:as req]
     (json-exception-handler
       (to-json identity

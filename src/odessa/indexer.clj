@@ -37,15 +37,26 @@
 
 (def merge-indexes (partial merge-with cheap-concat))
 
+(defn ^:private indexer [f data]
+  (->>
+    data
+    (map-indexed list)
+    (reduce f {})))
+
 (defn create-index [extractor prefix data]
   (let [f (fn [index [n record]]
             (merge-indexes
               index
               (invert [prefix n] (extractor record))))]
-  (->>
-    data
-    (map-indexed list)
-    (reduce f {}))))
+    (indexer f data)))
+
+(defn create-primary-key [extractor prefix data]
+  (let [f (fn [index [n record]]
+            (let [pk (extractor record)]
+              (if (contains? index pk)
+                (throw (IllegalStateException. (str "Duplicate primary key: " pk)))
+                (assoc index (extractor record) [prefix n]))))]
+    (indexer f data)))
 
 (defn build-functor [term]
   (if (fn? term)

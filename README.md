@@ -9,8 +9,11 @@ A JSON full-text search endpoint API onto NHS ODS data.
 - [Setup / Install](#setup--install)
   - [Docker image](#docker-image)
 - [Usage](#usage)
-  - [Query Parameters](#query-parameters)
-  - [Example API call](#example-api-call)
+  - [Keyword Text Search](#keyword-text-search)
+    - [Query Parameters](#query-parameters)
+    - [Example API call](#example-api-call)
+  - [By Organisation Code](#by-organisation-code)
+    - [Example API call](#example-api-call-1)
 - [TODO](#todo)
 - [References](#references)
 - [Licenses](#licenses)
@@ -46,6 +49,8 @@ A docker image is available as [richardhull/ods-search-appliance](https://hub.do
 
 ## Usage
 
+### Keyword Text Search
+
 Once running, the server will respond to a HTTP request of `GET /search?q=...`,
 where the query term is defined by the following BNF grammar:
 
@@ -71,7 +76,7 @@ Negation can be quite slow on large sets.
 
 The HTTP response type is `application/json`.
 
-### Query Parameters
+#### Query Parameters
 
 | param  | required  | description                                        |
 |--------|-----------|----------------------------------------------------|
@@ -79,7 +84,7 @@ The HTTP response type is `application/json`.
 | size   | optional  | the number of results to return (default 20)       |
 | offset | optional  | offset in the result-set to start from (default 0) |
 
-### Example API call
+#### Example API call
 
 Running:
 
@@ -283,6 +288,57 @@ gives
           22206
         ]
       }
+    ]
+  },
+  "attribution": [
+    {
+      "license": "MIT",
+      "title": "ODS Search Appliance (c) Richard Hull 2016",
+      "description": "In-memory trigram inverted-indexes on HSCIC ODS data.",
+      "url": "https://github.com/rm-hull/ods-search-application"
+    },
+    {
+      "license": "Open Government License",
+      "title": "Organisation Data Service, Health and Social Care Information Centre, licenced under the Open Government Licence v2.0",
+      "description": "ODS data is published under the Open Government Licence (OGL) and is openly available to everyone to use.",
+      "url": "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/2/"
+    }
+  ]
+}
+```
+
+### By Organisation Code
+
+Single records can be retrieved if the org-code is already known: the server
+will repsond to  HTTP request of `GET /organisation-code/<ORG_CODE>`
+
+#### Example API call
+
+Running:
+
+    $ curl -s http://localhost:3000/organisation-code/R1A | jq .
+
+gives:
+
+```json
+{
+  "query": "R1A",
+  "data": {
+    "address-line-1": "ISAAC MADDOX HOUSE",
+    "address-line-2": "SHRUB HILL INDUSTRIAL ESTATE",
+    "address-line-4": "WORCESTER",
+    "address-line-5": "WORCESTERSHIRE",
+    "amended-record-indicator": true,
+    "gor-code": "F",
+    "high-level-health-geography": "Q77",
+    "name": "WORCESTERSHIRE HEALTH AND CARE NHS TRUST",
+    "national-grouping": "Y55",
+    "open-date": "2011-07-01",
+    "organisation-code": "R1A",
+    "postcode": "WR4 9RW",
+    "source": [
+      "etr",
+      0
     ]
   },
   "attribution": [
