@@ -36,7 +36,7 @@ Inside the project directory:
 To build and run a standalone jar:
 
     $ lein ring uberjar
-    $ java -jar target/ods-search-appliance-0.0.1-SNAPSHOT-standalone.jar
+    $ java -jar target/ods-search-appliance-0.1.0-standalone.jar
 
 In both instances, the webapp starts on http://localhost:3000
 
