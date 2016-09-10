@@ -16,8 +16,8 @@
     (loop [i 0
            len (.read zip-stream buf 0 chunk-size)]
       (if (> len 0)
-        (let [i (+ i len)]
-          (recur i (.read zip-stream buf i (- buf-size i))))
+        (let [j (+ i len)]
+          (recur j (.read zip-stream buf j (- buf-size j))))
         (do
           (.closeEntry zip-stream)
           {:filename (.getName entry)
