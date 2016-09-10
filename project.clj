@@ -1,4 +1,4 @@
-(defproject rm-hull/ods-search-appliance "0.0.1-SNAPSHOT"`
+(defproject rm-hull/ods-search-appliance "0.1.0"
   :description "ODS Search Appliance ('Odessa')"
   :url "https://github.com/rm-hull/ods-search-appliance"
   :license {
@@ -8,7 +8,7 @@
     [org.clojure/clojure "1.8.0"]
     [org.clojure/data.json "0.2.6"]
     [org.clojure/data.csv "0.1.3"]
-    [com.taoensso/timbre "4.7.3"]
+    [com.taoensso/timbre "4.7.4"]
     [rm-hull/jasentaa "0.2.3"]
     [compojure "1.5.1"]
     [ring "1.5.0"]
@@ -18,8 +18,6 @@
   :scm {:url "git@github.com:rm-hull/ods-search-appliance.git"}
   :ring {
     :handler odessa.handler/app }
-  :plugins [
-    [lein-ring "0.9.7"]]
   :source-paths ["src"]
   :jar-exclusions [#"(?:^|/).git"]
   :uberjar-exclusions [#"\.SF" #"\.RSA" #"\.DSA"]
@@ -34,4 +32,5 @@
       :global-vars {*warn-on-reflection* true}
       :plugins [
         [lein-cloverage "1.0.6"]
-        [lein-codox "0.9.5"]]}})
+        [lein-codox "0.9.7"]
+        [lein-ring "0.9.7"]]}})
