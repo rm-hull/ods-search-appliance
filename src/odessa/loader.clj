@@ -83,9 +83,14 @@
 (defn http-fetcher [source]
   (let [basename (name source)
         zip (str basename ".zip")
-        csv (str basename ".csv")]
-    (if-let [entry (zip/extract (str base-url zip) #(= (:filename %) csv))]
-      (apply str (map char (:bytes entry))))))
+        csv (str basename ".csv")
+        url (str base-url zip)]
+    (try
+      (if-let [entry (zip/extract (str base-url zip) #(= (:filename %) csv))]
+        (apply str (map char (:bytes entry))))
+      (catch Exception ex
+        (throw
+          (ex-info (str "Failed to retrieve: " url) {:cause ex}))))))
 
 (defn load-data [fetcher sources]
   (let [loader (fn [src] [src (-> src fetcher s/split-lines vec)])]
