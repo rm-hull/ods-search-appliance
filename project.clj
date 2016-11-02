@@ -31,6 +31,6 @@
     :dev {
       :global-vars {*warn-on-reflection* true}
       :plugins [
-        [lein-cloverage "1.0.7"]
+        [lein-cloverage "1.0.9"]
         [lein-codox "0.10.0"]
         [lein-ring "0.9.7"]]}})
