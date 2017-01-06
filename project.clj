@@ -8,13 +8,13 @@
     [org.clojure/clojure "1.8.0"]
     [org.clojure/data.json "0.2.6"]
     [org.clojure/data.csv "0.1.3"]
-    [com.taoensso/timbre "4.7.4"]
+    [com.taoensso/timbre "4.8.0"]
     [rm-hull/jasentaa "0.2.3"]
     [compojure "1.5.1"]
     [ring "1.5.0"]
     [hiccup "1.0.5"]
     [ring-logger-timbre "0.7.5"]
-    [metrics-clojure-ring "2.7.0"]]
+    [metrics-clojure-ring "2.8.0"]]
   :scm {:url "git@github.com:rm-hull/ods-search-appliance.git"}
   :ring {
     :handler odessa.handler/app }
@@ -32,5 +32,5 @@
       :global-vars {*warn-on-reflection* true}
       :plugins [
         [lein-cloverage "1.0.9"]
-        [lein-codox "0.10.0"]
-        [lein-ring "0.9.7"]]}})
+        [lein-codox "0.10.2"]
+        [lein-ring "0.10.0"]]}})
