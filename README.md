@@ -1,6 +1,6 @@
-# ODS Search Appliance 
-[![Build Status](https://travis-ci.org/rm-hull/ods-search-appliance.svg?branch=master)](http://travis-ci.org/rm-hull/ods-search-appliance) 
-[![Coverage Status](https://coveralls.io/repos/github/rm-hull/ods-search-appliance/badge.svg?branch=master)](https://coveralls.io/github/rm-hull/ods-search-appliance?branch=master) 
+# ODS Search Appliance
+[![Build Status](https://travis-ci.org/rm-hull/ods-search-appliance.svg?branch=master)](http://travis-ci.org/rm-hull/ods-search-appliance)
+[![Coverage Status](https://coveralls.io/repos/github/rm-hull/ods-search-appliance/badge.svg?branch=master)](https://coveralls.io/github/rm-hull/ods-search-appliance?branch=master)
 [![Dependencies Status](http://jarkeeper.com/rm-hull/ods-search-appliance/status.svg)](http://jarkeeper.com/rm-hull/ods-search-appliance)
 [![Docker Pulls](https://img.shields.io/docker/pulls/richardhull/ods-search-appliance.svg?maxAge=2592000)](https://hub.docker.com/r/richardhull/ods-search-appliance/)
 [![Maintenance](https://img.shields.io/maintenance/yes/2017.svg?maxAge=2592000)]()
