@@ -11,7 +11,7 @@
     [com.taoensso/timbre "4.10.0"]
     [rm-hull/jasentaa "0.2.3"]
     [compojure "1.6.0"]
-    [ring "1.6.1"]
+    [ring "1.6.2"]
     [ring-logger-timbre "0.7.5"]
     [metrics-clojure-ring "2.9.0"]]
   :scm {:url "git@github.com:rm-hull/ods-search-appliance.git"}
