@@ -32,4 +32,5 @@
       :plugins [
         [lein-cloverage "1.0.9"]
         [lein-codox "0.10.3"]
+        [lein-cljfmt "0.5.7"]
         [lein-ring "0.12.0"]]}})
