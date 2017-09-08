@@ -1,13 +1,13 @@
 (ns odessa.zip
   (:import
-    [java.util.zip ZipInputStream ZipEntry])
+   [java.util.zip ZipInputStream ZipEntry])
   (:require
-    [clojure.java.io :as io]))
+   [clojure.java.io :as io]))
 
 (defn- entries [^ZipInputStream zip-stream]
   (lazy-seq
-    (if-let [entry (.getNextEntry zip-stream)]
-      (cons entry (entries zip-stream)))))
+   (if-let [entry (.getNextEntry zip-stream)]
+     (cons entry (entries zip-stream)))))
 
 (defn- read-entry [^ZipInputStream zip-stream ^ZipEntry entry]
   (let [buf-size (.getSize entry)
@@ -27,8 +27,8 @@
 (defn extract [uri pred]
   (with-open [zip-stream (ZipInputStream. (io/input-stream uri))]
     (->>
-      zip-stream
-      entries
-      (map (partial read-entry zip-stream))
-      (filter pred)
-      first)))
+     zip-stream
+     entries
+     (map (partial read-entry zip-stream))
+     (filter pred)
+     first)))

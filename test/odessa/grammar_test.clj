@@ -1,9 +1,9 @@
 (ns odessa.grammar-test
   (:require
-    [jasentaa.parser :refer [parse-all]]
-    [odessa.grammar :refer :all]
-    [odessa.indexer :refer :all]
-    [odessa.loader :refer :all]))
+   [jasentaa.parser :refer [parse-all]]
+   [odessa.grammar :refer :all]
+   [odessa.indexer :refer :all]
+   [odessa.loader :refer :all]))
 
 ;(parse-all search-expr "")
 (parse-all search-expr "NOT hello ")
@@ -22,11 +22,11 @@
 
 (def index
   (apply merge-indexes
-    (pmap (fn [[ k v]] (create-index extract-indexable-fields k v)) test-data)))
+         (pmap (fn [[k v]] (create-index extract-indexable-fields k v)) test-data)))
 
 ((parse-all search-expr "harrogate") index)
 ((parse-all search-expr "NOT (leeds OR york)") index)
 (map
-  #(to-map (get-in test-data %))
-  ((parse-all search-expr "(NOT (leeds OR harrogate)) hospital") index) )
+ #(to-map (get-in test-data %))
+ ((parse-all search-expr "(NOT (leeds OR harrogate)) hospital") index))
 
