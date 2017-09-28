@@ -13,7 +13,7 @@
     [compojure "1.6.0"]
     [ring "1.6.2"]
     [ring-logger-timbre "0.7.5"]
-    [metrics-clojure-ring "2.9.0"]]
+    [metrics-clojure-ring "2.10.0"]]
   :scm {:url "git@github.com:rm-hull/ods-search-appliance.git"}
   :ring {
     :handler odessa.handler/app }
