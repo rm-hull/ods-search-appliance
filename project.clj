@@ -9,8 +9,8 @@
     [org.clojure/data.json "0.2.6"]
     [org.clojure/data.csv "0.1.4"]
     [com.taoensso/timbre "4.10.0"]
-    [rm-hull/jasentaa "0.2.4"]
-    [compojure "1.6.0"]
+    [rm-hull/jasentaa "0.2.5"]
+    [compojure "1.6.1"]
     [ring "1.6.3"]
     [ring-logger-timbre "0.7.6"]
     [metrics-clojure-ring "2.10.0"]]
@@ -33,4 +33,4 @@
         [lein-cloverage "1.0.10"]
         [lein-codox "0.10.3"]
         [lein-cljfmt "0.5.7"]
-        [lein-ring "0.12.2"]]}})
+        [lein-ring "0.12.4"]]}})
