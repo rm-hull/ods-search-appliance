@@ -6,58 +6,8 @@
    [taoensso.timbre :as timbre]
    [odessa.zip :as zip]))
 
-(def data-sets {; Health authorities and support agencies
-                :eauth "https://digital.nhs.uk/media/332/eauth/zip/eauth.zip"
-                :espha "https://digital.nhs.uk/media/343/espha/zip/espha.zip"
-                :ecsu "https://digital.nhs.uk/media/342/ecsu/zip/ecsu.zip"
-                :ecsusite "https://digital.nhs.uk/media/341/ecsusite/zip/ecsusite.zip"
-                :eother "https://digital.nhs.uk/media/340/eother/zip/eother.zip"
-                :ensa "https://digital.nhs.uk/media/339/ensa/zip/ensa.zip"
-
-  ; GP and GP practice related data
-                :epraccur "https://digital.nhs.uk/media/372/epraccur/zip/epraccur.zip"
-                :egpcur "https://digital.nhs.uk/media/370/egpcur/zip/egpcur.zip"
-                :epracmem "https://digital.nhs.uk/media/379/epracmem/zip/epracmem.zip"
-                :epcmem "https://digital.nhs.uk/media/378/epcmem/zip/epcmem.zip"
-                :epracarc "https://digital.nhs.uk/media/376/epracarc/zip/epracarc.zip"
-                :egparc "https://digital.nhs.uk/media/374/egparc/zip/egparc.zip"
-                :ebranchs "https://digital.nhs.uk/media/393/ebranchs/zip/ebranchs.zip"
-                :epharmacyhq "https://digital.nhs.uk/media/391/epharmacyhq/zip/epharmacyhq.zip"
-                :edispensary "https://digital.nhs.uk/media/390/edispensary/zip/edispensary.zip"
-                :enurse "https://digital.nhs.uk/media/388/enurse/zip/enurse.zip"
-                :epcdp "https://digital.nhs.uk/media/387/epcdp/zip/epcdp.zip"
-                :eabeydispgp "https://digital.nhs.uk/media/385/eabeydispgp/zip/eabeydispgp.zip"
-
-  ; Other NHS organisations
-                :eccg "https://digital.nhs.uk/media/354/eccg/zip/eccg1.zip"
-                :eccgsite "https://digital.nhs.uk/media/353/eccgsite/zip/eccgsite1.zip"
-                :etr "https://digital.nhs.uk/media/352/etr/zip/etr.zip"
-                :ets "https://digital.nhs.uk/media/351/ets/zip/ets.zip"
-                :etrust "https://digital.nhs.uk/media/350/etrust/zip/etrust.zip"
-                :ect "https://digital.nhs.uk/media/349/ect/zip/ect"
-                :ectsite "https://digital.nhs.uk/media/348/ectsite/zip/ectsite.zip"
-                :ecare "https://digital.nhs.uk/media/347/ecare/zip/ecare.zip"
-                :wlhb "https://digital.nhs.uk/media/346/wlhb/zip/wlhb.zip"
-                :wlhbsite "https://digital.nhs.uk/media/345/wlhbsite/zip/wlhbsite.zip"
-                :wlbs "https://digital.nhs.uk/media/344/whbs/zip/whbs.zip"
-
-  ; Home countries
-                :scotgp "https://digital.nhs.uk/media/582/scotgp/zip/scotgp.zip"
-                :scotprac "https://digital.nhs.uk/media/586/scotprac/zip/scotprac.zip"
-                :scotorg "https://digital.nhs.uk/media/585/scotorg/zip/scotorg.zip"
-                :ngpcur "https://digital.nhs.uk/media/577/ngpcur/zip/ngpcur.zip"
-                :ngpraccur "https://digital.nhs.uk/media/581/npraccur/zip/npraccur.zip"
-                :niorg "https://digital.nhs.uk/media/579/niorg/zip/NIORG.zip"
-                :eiom "https://digital.nhs.uk/media/576/eiom/zip/eiom.zip"
-
-  ; Non-NHS organisations
-                :ephp "https://digital.nhs.uk/media/414/ephp/zip/ephp.zip"
-                :ephpsite "https://digital.nhs.uk/media/412/ephpsite/zip/ephpsite.zip"
-                :enonnhs "https://digital.nhs.uk/media/411/enonnhs/zip/enonnhs.zip"
-                :eschool "https://digital.nhs.uk/media/406/eschools/zip/eschools.zip"
-                :lauth "https://digital.nhs.uk/media/403/Lauth/zip/Lauth.zip"
-                :eprison "https://digital.nhs.uk/media/401/eprison/zip/eprison.zip"
-                :ejustice "https://digital.nhs.uk/media/400/ejustice/zip/ejustice.zip"})
+(defn data-sets [abbr]
+  (str "https://s3.eu-west-2.amazonaws.com/files.nhsd.io/assets/ods/current/" (name abbr) ".zip"))
 
 (def field-names [:organisation-code
                   :name
