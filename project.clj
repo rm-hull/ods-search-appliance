@@ -11,7 +11,7 @@
     [com.taoensso/timbre "4.10.0"]
     [rm-hull/jasentaa "0.2.5"]
     [compojure "1.6.1"]
-    [ring "1.6.3"]
+    [ring "1.7.0"]
     [ring-logger-timbre "0.7.6"]
     [metrics-clojure-ring "2.10.0"]]
   :scm {:url "git@github.com:rm-hull/ods-search-appliance.git"}
@@ -30,7 +30,7 @@
     :dev {
       :global-vars {*warn-on-reflection* true}
       :plugins [
-        [lein-cloverage "1.0.10"]
-        [lein-codox "0.10.3"]
-        [lein-cljfmt "0.5.7"]
+        [lein-cloverage "1.0.13"]
+        [lein-codox "0.10.5"]
+        [lein-cljfmt "0.6.1"]
         [lein-ring "0.12.4"]]}})
