@@ -11,14 +11,14 @@
               :eccg
               :eccgsite
               :ecsu
-              :enonnhs
+              ;:enonnhs
               :eother
               :epraccur
               :etr
               :etrust
               :niorg
-              :scotorg
-  ;:wlhb
+              ;:scotorg
+              ;:wlhb
 ])
 
 (defn fetcher [source]

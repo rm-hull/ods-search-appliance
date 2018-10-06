@@ -7,7 +7,9 @@
    [odessa.zip :as zip]))
 
 (defn data-sets [abbr]
-  (str "https://s3.eu-west-2.amazonaws.com/files.nhsd.io/assets/ods/current/" (name abbr) ".zip"))
+  (case abbr
+    :epraccur (str "https://files.digital.nhs.uk/assets/ods/current/" (name abbr) ".zip")
+    (str "https://nhsenglandfilestore.s3.amazonaws.com/ods/" (name abbr) ".zip")))
 
 (def field-names [:organisation-code
                   :name
@@ -92,5 +94,10 @@
          (ex-info (str "Failed to retrieve: " url) {:cause ex}))))))
 
 (defn load-data [fetcher sources]
-  (let [loader (fn [src] [src (-> src fetcher s/split-lines vec)])]
+  (let [loader (fn [src]
+                 (try
+                   [src (-> src fetcher s/split-lines vec)]
+                   (catch Exception ex
+                     (throw
+                      (ex-info (str "Failed to process: " src) {:cause ex})))))]
     (into {} (pmap loader sources))))
