@@ -19,7 +19,7 @@
               :niorg
               ;:scotorg
               ;:wlhb
-])
+              ])
 
 (defn fetcher [source]
   (p source (http-fetcher source)))
